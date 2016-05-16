@@ -1,0 +1,501 @@
+<html>
+    <head>
+        <title>Slider Test</title>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+        <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+        <style>
+            * {
+                font-family: 'Open sans';
+            }
+            .clearfix:after {
+                 visibility: hidden;
+                 display: block;
+                 font-size: 0;
+                 content: " ";
+                 clear: both;
+                 height: 0;
+                 }
+            .clearfix { display: inline-block; }
+            /* start commented backslash hack \*/
+            * html .clearfix { height: 1%; }
+            .clearfix { display: block; }
+            /* close commented backslash hack */
+            .slick-list {
+                padding: 3px;
+                margin: 20px 0 0 20px;
+            }
+            .slick-prev, .slick-next {
+                background-color: #FFF;
+                outline: none;
+                border: none;
+                width: 20px;
+                height: 141px;
+                position: absolute;
+                top: 22px;
+                z-index: 9999;
+            }
+            .slick-next {
+                right: 0;
+            }
+            .video-list-item {
+                width: 289px;
+                height: 157px; 
+                position: relative;
+                top: 20px;
+                background-position: 0px -20px;
+                background-size: 289px;
+                background-repeat: no-repeat;
+                border-radius: 1px;
+                box-sizing: border-box;
+                -webkit-user-select: none;
+                margin-right: 12px;
+                margin-bottom: 20px;
+                outline: none;
+                -webkit-transition:  200ms ease-out; 
+                   -moz-transition:  200ms ease-out; 
+                     -o-transition:  200ms ease-out; 
+                        transition:  200ms ease-out;
+            }
+            .video-list-item.animate {
+                top:0px;
+                left:0px;
+                width:289px;
+                height:350px;
+                background-position: 0% 0%;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+                transition-duration:400ms;
+                -webkit-transition-delay: 400ms; 
+                    transition-delay: 400ms;
+            }
+            .stats-container {
+                display: none;
+            }
+            .img-overlay {
+                position: absolute;
+                width:100%;
+                height: 160px;
+                background-color:rgba(0,0,0,0.25);
+                display: none;
+            }
+            .comments {
+                float: left;
+                position: absolute;
+                left: 12px;
+                top: 8px;
+                color: #FFF;
+                font-weight: 600;
+            }
+            .rating {
+                position: relative;
+                float: right;
+                background-color: green;
+                margin: 10px;
+                color: #FFF;
+                padding: 5px;
+                border-radius: 5px;
+            }
+            .material-icons {
+                position: absolute;
+                top: 50px;
+                left: 110px;
+                color: #FFF;
+                font-size: 70px;
+                background-color: rgba(0,0,0,0.3);
+                border-radius: 40px;
+            }
+            .title {
+                font-size: 24px;
+                color: #000;
+                position: relative;
+                top: 167px;
+                float: left;
+                padding: 0 10px 30px 10px;
+            }
+            .blurb {
+                position: relative;
+                top: 140px;
+                float: left;
+                font-size: 14px;
+                color: #000;
+                padding: 0 10px 0 10px;
+            }
+            nav {
+                width: 100%;
+                height: 60px;
+                background-color: #BE194B;
+                padding: 0;
+                margin: 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        </style>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                // SLICK CAROUSEL
+                $('.video-list').slick({
+                    dots: false,
+                    infinite: true,
+                    speed: 300,
+                    variableWidth: true,
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
+                    //centerMode: true,
+                    responsive: [
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 3,
+                                slidesToScroll: 3
+                            }
+                        },
+                        {
+                            breakpoint: 600,
+                            settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 2
+                            }
+                        },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1
+                            }
+                        }
+                    ]
+                });
+                // Expand card and show info on Mouseover after a slight delay
+                $('.video-list-item').hover(function(){
+                    $(this).delay(500).addClass('animate'),
+                    $('.stats-container',this).delay(500).fadeIn(400),
+                    $('.img-overlay',this).delay(500).fadeIn(400);
+                    }, function(){
+                    $(this).removeClass('animate'),
+                    $('.stats-container',this).fadeOut(400),
+                    $('.img-overlay',this).fadeOut(400);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <nav></nav>
+        <!-- SLIDER ROW 1 -->
+        <h1 style="margin: 80px 0 0 20px;">Movie List</h1>
+        <div class="video-list">
+            <div class="video-list-item lazy" data-content-id="325" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/325/810/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div>
+                <a class="clearfix" href="/videos/325/kiss-and-tell">
+                    <div class="stats-container">
+                        <i class="material-icons">play_arrow</i>
+                        <span class="title">Kiss And Tell</span>
+                        <span class="rating">82%</span>
+                        <span class="comments">232 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="337" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/337/633/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div>
+                <a class="clearfix" href="/videos337/holding-hope">
+                    <div class="stats-container">
+                        <i class="material-icons">play_arrow</i>
+                        <span class="title">Holding Hope</span>
+                        <span class="rating">88%</span>
+                        <span class="comments">124 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="195" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/195/693/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div> 
+                <a class="clearfix" href="/videos195/the-advocate">
+                    <div class="stats-container">
+                        <i class="material-icons">play_arrow</i>
+                        <span class="title">The Advocate</span>
+                        <span class="rating">75%</span>
+                        <span class="comments">612 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="464" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/464/756/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div> 
+                <a class="clearfix" href="/videos464/bridge-of-hope">
+                    <div class="stats-container">
+                        <i class="material-icons">play_arrow</i>
+                        <span class="title">Bridge Of Hope</span>
+                        <span class="rating">73%</span>
+                        <span class="comments">25 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="199" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/199/781/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div> 
+                <a class="clearfix" href="/videos199/spell-bound">
+                    <div class="stats-container">
+                        <i class="material-icons">play_arrow</i>
+                        <span class="title">Spell Bound</span>
+                        <span class="rating">72%</span>
+                        <span class="comments">43 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="227" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/227/848/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div> 
+                <a class="clearfix" href="/videos227/masquerades">
+                    <div class="stats-container">
+                        <i class="material-icons">play_arrow</i>
+                        <span class="title">Masquerades</span>
+                        <span class="rating">85%</span>
+                        <span class="comments">453 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="268" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/268/872/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div> 
+                <a class="clearfix" href="/videos268/desperate-housegirls">
+                    <div class="stats-container"><i class="material-icons">play_arrow</i>
+                    <span class="title">Desperate Housegirls</span>
+                    <span class="rating">83%</span>
+                    <span class="comments">198 Comments</span>
+                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="431" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/431/878/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div> 
+                <a class="clearfix" href="/videos431/lonely-heart">
+                    <div class="stats-container"><i class="material-icons">play_arrow</i>
+                    <span class="title">Lonely Heart</span>
+                    <span class="rating">88%</span>
+                    <span class="comments">221 Comments</span>
+                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="509" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/509/891/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div> 
+                <a class="clearfix" href="/videos509/unguarded">
+                    <div class="stats-container"><i class="material-icons">play_arrow</i>
+                    <span class="title">Unguarded</span>
+                    <span class="rating">83%</span>
+                    <span class="comments">189 Comments</span>
+                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="283" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/283/898/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div> 
+                <a class="clearfix" href="/videos283/kidnap">
+                    <div class="stats-container"><i class="material-icons">play_arrow</i>
+                    <span class="title">Kidnap</span>
+                    <span class="rating">82%</span>
+                    <span class="comments">983 Comments</span>
+                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="609" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/609/912/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div> 
+                <a class="clearfix" href="/videos609/finding-mercy">
+                    <div class="stats-container"><i class="material-icons">play_arrow</i>
+                    <span class="title">Finding Mercy</span>
+                    <span class="rating">91%</span>
+                    <span class="comments">653 Comments</span>
+                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="455" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/455/918/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div> 
+                <a class="clearfix" href="/videos455/the-next-president">
+                    <div class="stats-container"><i class="material-icons">play_arrow</i>
+                    <span class="title">The Next President</span>
+                    <span class="rating">75%</span>
+                    <span class="comments">251 Comments</span>
+                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="404" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/404/916/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div> 
+                <a class="clearfix" href="/videos404/hide-and-seek">
+                    <div class="stats-container"><i class="material-icons">play_arrow</i>
+                    <span class="title">Hide And Seek</span>
+                    <span class="rating">65%</span>
+                    <span class="comments">251 Comments</span>
+                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="456" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/456/948/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div> 
+                <a class="clearfix" href="/videos456/lies-men-tell">
+                    <div class="stats-container"><i class="material-icons">play_arrow</i>
+                    <span class="title">Lies Men Tell</span>
+                    <span class="rating">89%</span>
+                    <span class="comments">251 Comments</span>
+                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="623" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/623/1019/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div> 
+                <a class="clearfix" href="/videos623/kamaras-tree">
+                    <div class="stats-container"><i class="material-icons">play_arrow</i>
+                    <span class="title">Kamaras Tree</span>
+                    <span class="rating">89%</span>
+                    <span class="comments">251 Comments</span>
+                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="565" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/565/1034/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div> 
+                <a class="clearfix" href="/videos565/unforgivable">
+                    <div class="stats-container"><i class="material-icons">play_arrow</i>
+                    <span class="title">Unforgivable</span>
+                    <span class="rating">89%</span>
+                    <span class="comments">251 Comments</span>
+                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="532" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/532/1075/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div> 
+                <a class="clearfix" href="/videos532/before-god-and-man">
+                    <div class="stats-container"><i class="material-icons">play_arrow</i>
+                    <span class="title">Before God And Man</span>
+                    <span class="rating">90%</span>
+                    <span class="comments">251 Comments</span>
+                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="569" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/569/1172/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div> 
+                <a class="clearfix" href="/videos569/the-entrapped">
+                    <div class="stats-container"><i class="material-icons">play_arrow</i>
+                    <span class="title">The Entrapped</span>
+                    <span class="rating">83%</span>
+                    <span class="comments">251 Comments</span>
+                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="788" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/788/1304/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div> 
+                <a class="clearfix" href="/videos788/la-famille-kamara">
+                    <div class="stats-container"><i class="material-icons">play_arrow</i>
+                    <span class="title">La Famille Kamara</span>
+                    <span class="rating">21%</span>
+                    <span class="comments">251 Comments</span>
+                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="828" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/828/1317/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div> 
+                <a class="clearfix" href="/videos828/revanche">
+                    <div class="stats-container"><i class="material-icons">play_arrow</i>
+                    <span class="title">Revanche</span>
+                    <span class="rating">0%</span>
+                    <span class="comments">251 Comments</span>
+                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="826" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/826/1320/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div> 
+                <a class="clearfix" href="/videos826/imprudence">
+                    <div class="stats-container"><i class="material-icons">play_arrow</i>
+                    <span class="title">Imprudence</span>
+                    <span class="rating">51%</span>
+                    <span class="comments">251 Comments</span>
+                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="688" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/688/1330/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div> 
+                <a class="clearfix" href="/videos688/birthday-bash">
+                    <div class="stats-container"><i class="material-icons">play_arrow</i>
+                    <span class="title">Birthday Bash</span>
+                    <span class="rating">78%</span>
+                    <span class="comments">251 Comments</span>
+                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="711" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/711/1273/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div> 
+                <a class="clearfix" href="/videos711/mensonges-impitoyables">
+                    <div class="stats-container"><i class="material-icons">play_arrow</i>
+                    <span class="title">Mensonges Impitoyables</span>
+                    <span class="rating">52%</span>
+                    <span class="comments">251 Comments</span>
+                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="845" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/845/1352/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div> 
+                <a class="clearfix" href="/videos845/un-mensonge-impardonnable">
+                    <div class="stats-container"><i class="material-icons">play_arrow</i>
+                    <span class="title">Un Mensonge Impardonnable</span>
+                    <span class="rating">57%</span>
+                    <span class="comments">251 Comments</span>
+                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="655" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/655/1358/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div> 
+                <a class="clearfix" href="/videos655/etre-en-paix">
+                    <div class="stats-container"><i class="material-icons">play_arrow</i>
+                    <span class="title">ETRE EN PAIX</span>
+                    <span class="rating">51%</span>
+                    <span class="comments">251 Comments</span>
+                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="847" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/847/1359/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div> 
+                <a class="clearfix" href="/videos847/coeur-solitaire">
+                    <div class="stats-container"><i class="material-icons">play_arrow</i>
+                    <span class="title">Coeur Solitaire</span>
+                    <span class="rating">21%</span>
+                    <span class="comments">251 Comments</span>
+                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                </a>
+            </div>
+
+            <div class="video-list-item lazy" data-content-id="605" style="background-image: url('https://iroko-v3-assets.s3.amazonaws.com/images/605/1400/ls_289x160@2x.jpg');">
+                <div class="img-overlay"></div> 
+                <a class="clearfix" href="/videos605/amour-et-trahison">
+                    <div class="stats-container"><i class="material-icons">play_arrow</i>
+                    <span class="title">Amour Et Trahison</span>
+                    <span class="rating">30%</span>
+                    <span class="comments">251 Comments</span>
+                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                </a>
+            </div>
+        </div>
+        <!-- <p>Please create two styles sliders, one with the hover overlay from irokotv_web_cover.mov (included in the zip), and one of your choosing, feel free to use another video provider as inspiration.<br/>Upon hover the covers should expand to reveal additional information about the title. Remember to think about delaying the start of the animation as the use may just be passing over.</p> -->
+    </body>
+</html>
