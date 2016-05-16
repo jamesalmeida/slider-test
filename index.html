@@ -7,22 +7,26 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
         <style>
-            * {
-                font-family: 'Open sans';
-            }
+            * { font-family: 'Open sans'; }
+            /* --- Just some clearfix stuff --- */
             .clearfix:after {
-                 visibility: hidden;
-                 display: block;
-                 font-size: 0;
-                 content: " ";
-                 clear: both;
-                 height: 0;
-                 }
-            .clearfix { display: inline-block; }
-            /* start commented backslash hack \*/
-            * html .clearfix { height: 1%; }
-            .clearfix { display: block; }
-            /* close commented backslash hack */
+                visibility: hidden;
+                display: block;
+                font-size: 0;
+                content: " ";
+                clear: both;
+                height: 0;
+            }
+            .clearfix { 
+                display: inline-block; 
+            }
+            * html .clearfix { 
+                height: 1%; 
+            }
+            .clearfix { 
+                display: block; 
+            }
+            /* --- Slick Carousel Styles --- */
             .slick-list {
                 padding: 3px;
                 margin: 20px 0 0 20px;
@@ -54,24 +58,24 @@
                 margin-right: 12px;
                 margin-bottom: 20px;
                 outline: none;
-                -webkit-transition:  200ms ease-out; 
-                   -moz-transition:  200ms ease-out; 
-                     -o-transition:  200ms ease-out; 
-                        transition:  200ms ease-out;
+                -webkit-transition: 200ms ease-out; 
+                   -moz-transition: 200ms ease-out; 
+                     -o-transition: 200ms ease-out; 
+                        transition: 200ms ease-out;
             }
             .video-list-item.animate {
-                top:0px;
-                left:0px;
-                width:289px;
-                height:350px;
+                top: 0px;
+                left: 0px;
+                width: 289px;
+                height: 350px;
                 background-position: 0% 0%;
                 box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-                transition-duration:400ms;
+                transition-duration: 400ms;
                 -webkit-transition-delay: 400ms; 
-                    transition-delay: 400ms;
+                        transition-delay: 400ms;
             }
             .stats-container {
-                display: none;
+                display: none; /* Start with video stats hidden */
             }
             .img-overlay {
                 position: absolute;
@@ -81,8 +85,8 @@
                 display: none;
             }
             .comments {
-                float: left;
                 position: absolute;
+                float: left;
                 left: 12px;
                 top: 8px;
                 color: #FFF;
@@ -108,9 +112,9 @@
                 border-radius: 40px;
             }
             .title {
+                position: relative;
                 font-size: 24px;
                 color: #000;
-                position: relative;
                 top: 167px;
                 float: left;
                 padding: 0 10px 30px 10px;
@@ -124,12 +128,12 @@
                 padding: 0 10px 0 10px;
             }
             nav {
+                position: absolute;
                 width: 100%;
                 height: 60px;
                 background-color: #BE194B;
                 padding: 0;
                 margin: 0;
-                position: absolute;
                 top: 0;
                 left: 0;
                 background-image: url('http://irokotv.com/img/logo.png');
@@ -173,7 +177,7 @@
                         }
                     ]
                 });
-                // Expand card and show info on Mouseover after a slight delay
+                // Expand card and show info on hover after a slight delay
                 $('.video-list-item').hover(function(){
                     $(this).delay(500).addClass('animate'),
                     $('.stats-container',this).delay(500).fadeIn(400),
@@ -187,7 +191,7 @@
         </script>
     </head>
     <body>
-        <nav></nav>
+        <nav></nav> 
         <!-- SLIDER ROW 1 -->
         <h1 style="margin: 80px 0 0 20px;">Movie List</h1>
         <div class="video-list">
@@ -273,10 +277,11 @@
                 <div class="img-overlay"></div> 
                 <a class="clearfix" href="/videos268/desperate-housegirls">
                     <div class="stats-container"><i class="material-icons">play_arrow</i>
-                    <span class="title">Desperate Housegirls</span>
-                    <span class="rating">83%</span>
-                    <span class="comments">198 Comments</span>
-                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                        <span class="title">Desperate Housegirls</span>
+                        <span class="rating">83%</span>
+                        <span class="comments">198 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
                 </a>
             </div>
 
@@ -284,10 +289,11 @@
                 <div class="img-overlay"></div> 
                 <a class="clearfix" href="/videos431/lonely-heart">
                     <div class="stats-container"><i class="material-icons">play_arrow</i>
-                    <span class="title">Lonely Heart</span>
-                    <span class="rating">88%</span>
-                    <span class="comments">221 Comments</span>
-                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                        <span class="title">Lonely Heart</span>
+                        <span class="rating">88%</span>
+                        <span class="comments">221 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
                 </a>
             </div>
 
@@ -295,10 +301,11 @@
                 <div class="img-overlay"></div> 
                 <a class="clearfix" href="/videos509/unguarded">
                     <div class="stats-container"><i class="material-icons">play_arrow</i>
-                    <span class="title">Unguarded</span>
-                    <span class="rating">83%</span>
-                    <span class="comments">189 Comments</span>
-                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                        <span class="title">Unguarded</span>
+                        <span class="rating">83%</span>
+                        <span class="comments">189 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
                 </a>
             </div>
 
@@ -306,10 +313,11 @@
                 <div class="img-overlay"></div> 
                 <a class="clearfix" href="/videos283/kidnap">
                     <div class="stats-container"><i class="material-icons">play_arrow</i>
-                    <span class="title">Kidnap</span>
-                    <span class="rating">82%</span>
-                    <span class="comments">983 Comments</span>
-                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                        <span class="title">Kidnap</span>
+                        <span class="rating">82%</span>
+                        <span class="comments">983 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
                 </a>
             </div>
 
@@ -317,10 +325,11 @@
                 <div class="img-overlay"></div> 
                 <a class="clearfix" href="/videos609/finding-mercy">
                     <div class="stats-container"><i class="material-icons">play_arrow</i>
-                    <span class="title">Finding Mercy</span>
-                    <span class="rating">91%</span>
-                    <span class="comments">653 Comments</span>
-                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                        <span class="title">Finding Mercy</span>
+                        <span class="rating">91%</span>
+                        <span class="comments">653 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
                 </a>
             </div>
 
@@ -328,10 +337,11 @@
                 <div class="img-overlay"></div> 
                 <a class="clearfix" href="/videos455/the-next-president">
                     <div class="stats-container"><i class="material-icons">play_arrow</i>
-                    <span class="title">The Next President</span>
-                    <span class="rating">75%</span>
-                    <span class="comments">251 Comments</span>
-                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                        <span class="title">The Next President</span>
+                        <span class="rating">75%</span>
+                        <span class="comments">251 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
                 </a>
             </div>
 
@@ -339,10 +349,11 @@
                 <div class="img-overlay"></div> 
                 <a class="clearfix" href="/videos404/hide-and-seek">
                     <div class="stats-container"><i class="material-icons">play_arrow</i>
-                    <span class="title">Hide And Seek</span>
-                    <span class="rating">65%</span>
-                    <span class="comments">251 Comments</span>
-                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                        <span class="title">Hide And Seek</span>
+                        <span class="rating">65%</span>
+                        <span class="comments">251 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
                 </a>
             </div>
 
@@ -350,10 +361,11 @@
                 <div class="img-overlay"></div> 
                 <a class="clearfix" href="/videos456/lies-men-tell">
                     <div class="stats-container"><i class="material-icons">play_arrow</i>
-                    <span class="title">Lies Men Tell</span>
-                    <span class="rating">89%</span>
-                    <span class="comments">251 Comments</span>
-                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                        <span class="title">Lies Men Tell</span>
+                        <span class="rating">89%</span>
+                        <span class="comments">251 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
                 </a>
             </div>
 
@@ -361,10 +373,11 @@
                 <div class="img-overlay"></div> 
                 <a class="clearfix" href="/videos623/kamaras-tree">
                     <div class="stats-container"><i class="material-icons">play_arrow</i>
-                    <span class="title">Kamaras Tree</span>
-                    <span class="rating">89%</span>
-                    <span class="comments">251 Comments</span>
-                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                        <span class="title">Kamaras Tree</span>
+                        <span class="rating">89%</span>
+                        <span class="comments">251 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
                 </a>
             </div>
 
@@ -372,10 +385,11 @@
                 <div class="img-overlay"></div> 
                 <a class="clearfix" href="/videos565/unforgivable">
                     <div class="stats-container"><i class="material-icons">play_arrow</i>
-                    <span class="title">Unforgivable</span>
-                    <span class="rating">89%</span>
-                    <span class="comments">251 Comments</span>
-                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                        <span class="title">Unforgivable</span>
+                        <span class="rating">89%</span>
+                        <span class="comments">251 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
                 </a>
             </div>
 
@@ -383,10 +397,11 @@
                 <div class="img-overlay"></div> 
                 <a class="clearfix" href="/videos532/before-god-and-man">
                     <div class="stats-container"><i class="material-icons">play_arrow</i>
-                    <span class="title">Before God And Man</span>
-                    <span class="rating">90%</span>
-                    <span class="comments">251 Comments</span>
-                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                        <span class="title">Before God And Man</span>
+                        <span class="rating">90%</span>
+                        <span class="comments">251 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
                 </a>
             </div>
 
@@ -394,10 +409,11 @@
                 <div class="img-overlay"></div> 
                 <a class="clearfix" href="/videos569/the-entrapped">
                     <div class="stats-container"><i class="material-icons">play_arrow</i>
-                    <span class="title">The Entrapped</span>
-                    <span class="rating">83%</span>
-                    <span class="comments">251 Comments</span>
-                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                        <span class="title">The Entrapped</span>
+                        <span class="rating">83%</span>
+                        <span class="comments">251 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
                 </a>
             </div>
 
@@ -405,10 +421,11 @@
                 <div class="img-overlay"></div> 
                 <a class="clearfix" href="/videos788/la-famille-kamara">
                     <div class="stats-container"><i class="material-icons">play_arrow</i>
-                    <span class="title">La Famille Kamara</span>
-                    <span class="rating">21%</span>
-                    <span class="comments">251 Comments</span>
-                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                        <span class="title">La Famille Kamara</span>
+                        <span class="rating">21%</span>
+                        <span class="comments">251 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
                 </a>
             </div>
 
@@ -416,10 +433,11 @@
                 <div class="img-overlay"></div> 
                 <a class="clearfix" href="/videos828/revanche">
                     <div class="stats-container"><i class="material-icons">play_arrow</i>
-                    <span class="title">Revanche</span>
-                    <span class="rating">0%</span>
-                    <span class="comments">251 Comments</span>
-                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                        <span class="title">Revanche</span>
+                        <span class="rating">0%</span>
+                        <span class="comments">251 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
                 </a>
             </div>
 
@@ -427,10 +445,11 @@
                 <div class="img-overlay"></div> 
                 <a class="clearfix" href="/videos826/imprudence">
                     <div class="stats-container"><i class="material-icons">play_arrow</i>
-                    <span class="title">Imprudence</span>
-                    <span class="rating">51%</span>
-                    <span class="comments">251 Comments</span>
-                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                        <span class="title">Imprudence</span>
+                        <span class="rating">51%</span>
+                        <span class="comments">251 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
                 </a>
             </div>
 
@@ -438,10 +457,11 @@
                 <div class="img-overlay"></div> 
                 <a class="clearfix" href="/videos688/birthday-bash">
                     <div class="stats-container"><i class="material-icons">play_arrow</i>
-                    <span class="title">Birthday Bash</span>
-                    <span class="rating">78%</span>
-                    <span class="comments">251 Comments</span>
-                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                        <span class="title">Birthday Bash</span>
+                        <span class="rating">78%</span>
+                        <span class="comments">251 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
                 </a>
             </div>
 
@@ -449,10 +469,11 @@
                 <div class="img-overlay"></div> 
                 <a class="clearfix" href="/videos711/mensonges-impitoyables">
                     <div class="stats-container"><i class="material-icons">play_arrow</i>
-                    <span class="title">Mensonges Impitoyables</span>
-                    <span class="rating">52%</span>
-                    <span class="comments">251 Comments</span>
-                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                        <span class="title">Mensonges Impitoyables</span>
+                        <span class="rating">52%</span>
+                        <span class="comments">251 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
                 </a>
             </div>
 
@@ -460,10 +481,11 @@
                 <div class="img-overlay"></div> 
                 <a class="clearfix" href="/videos845/un-mensonge-impardonnable">
                     <div class="stats-container"><i class="material-icons">play_arrow</i>
-                    <span class="title">Un Mensonge Impardonnable</span>
-                    <span class="rating">57%</span>
-                    <span class="comments">251 Comments</span>
-                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                        <span class="title">Un Mensonge Impardonnable</span>
+                        <span class="rating">57%</span>
+                        <span class="comments">251 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
                 </a>
             </div>
 
@@ -471,10 +493,11 @@
                 <div class="img-overlay"></div> 
                 <a class="clearfix" href="/videos655/etre-en-paix">
                     <div class="stats-container"><i class="material-icons">play_arrow</i>
-                    <span class="title">ETRE EN PAIX</span>
-                    <span class="rating">51%</span>
-                    <span class="comments">251 Comments</span>
-                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                        <span class="title">ETRE EN PAIX</span>
+                        <span class="rating">51%</span>
+                        <span class="comments">251 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
                 </a>
             </div>
 
@@ -482,10 +505,11 @@
                 <div class="img-overlay"></div> 
                 <a class="clearfix" href="/videos847/coeur-solitaire">
                     <div class="stats-container"><i class="material-icons">play_arrow</i>
-                    <span class="title">Coeur Solitaire</span>
-                    <span class="rating">21%</span>
-                    <span class="comments">251 Comments</span>
-                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                        <span class="title">Coeur Solitaire</span>
+                        <span class="rating">21%</span>
+                        <span class="comments">251 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
                 </a>
             </div>
 
@@ -493,10 +517,11 @@
                 <div class="img-overlay"></div> 
                 <a class="clearfix" href="/videos605/amour-et-trahison">
                     <div class="stats-container"><i class="material-icons">play_arrow</i>
-                    <span class="title">Amour Et Trahison</span>
-                    <span class="rating">30%</span>
-                    <span class="comments">251 Comments</span>
-                    <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span></div>
+                        <span class="title">Amour Et Trahison</span>
+                        <span class="rating">30%</span>
+                        <span class="comments">251 Comments</span>
+                        <span class="blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores corporis cumque dignissimos eaque eligendi error, fugit, nihil odit optio ratione repellendus, rerum similique sint tempore totam vel vero voluptatem!</span>
+                    </div>
                 </a>
             </div>
         </div>
